@@ -1,0 +1,73 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Login</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="/">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Login</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="../../assets/img/login.jpg" alt="">
+                    <div class="hover">
+                        <h4>New to our website?</h4>
+                        <p>There are advances being made in science and technology everyday, and a good example of this
+                            is the</p>
+                        <a class="primary-btn" [routerLink]="['/register']">Create an Account</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <div class="text-center mb-3 alert alert-warning alert-dismissible" *ngIf="invalidLogin" role="alert">
+                        <strong>{{ ErrorMessage }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <h3>Log in to enter</h3>
+                    <form class="row login_form" [formGroup]="insertForm" (ngSubmit)="onSubmit()" id="contactForm"
+                        novalidate="novalidate">
+
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" formControlName="Username" id="Username" name="Username" placeholder="Username"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                            <div *ngIf="Username.touched && Username.errors" class="errorMessage">
+                                <span *ngIf="Username.hasError('required')"> Username is required </span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" formControlName="Password" id="Password" name="Password" placeholder="Password"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <div *ngIf="Password.touched && Password.errors" class="errorMessage">
+                                <span *ngIf="Password.hasError('required')"> Password is required </span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Keep me logged in</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="primary-btn" [disabled]="insertForm.invalid">Log In</button>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->
